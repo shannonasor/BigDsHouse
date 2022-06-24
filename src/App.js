@@ -1,4 +1,5 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedinIn, faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
@@ -6,78 +7,71 @@ import { faHandsHoldingCircle, faHandHoldingDollar, faHouse, faNewspaper, faRece
 import example from './example.jpg'
 
 
+// import Desktop from "./responsive-components/desktop/component";
+// import Laptop from "./responsive-components/laptop/component";
+// import BigScreen from "./responsive-components/big-screen/component";
+// import MedScreen from "./responsive-components/med-screen/component";
+import SmallMobile from "./responsive-components/small-mobile/component";
+import ExSmallMobile from "./responsive-components/ex-small-mobile/component";
+import Mobile from "./responsive-components/mobile/component";
+import TabletMobile from "./responsive-components/tablet-mobile/component";
+
 function App() {
-  return (
-    <div className="App">
-      <div className='Left'>
-          <div className='Left-Main-Heading'>
-            <h1>Big D's House</h1>
-          </div>
-          <div className='Left-Main-Menu'>
-            <ul className= 'Left-Main-Menu-Icon-List'>
-                <li><FontAwesomeIcon icon={faHouse} /></li>
-                <li><FontAwesomeIcon icon={faTableList} /></li>
-                <li><FontAwesomeIcon icon={faNewspaper} /></li>
-                <li><FontAwesomeIcon icon={faHandHoldingDollar} /></li>
-                <li><FontAwesomeIcon icon={faReceipt} /></li>
-              </ul>
 
-              <ul className= 'Left-Main-Menu-List'>
-                <li>Home</li>
-                <li>Resources</li>
-                <li>News  Events</li>
-                <li>Donate</li>
-                <li>Orders</li>
-              </ul>
-          </div>
-          <div className='Left-Social-Menu'>
-          <ul className='Left-Social-Menu-List'>
-              <li><FontAwesomeIcon icon={faFacebook} /></li>
-              <li><FontAwesomeIcon icon={faLinkedinIn} /></li>
-              <li><FontAwesomeIcon icon={faInstagram} /></li>
-              <li><FontAwesomeIcon icon={faTwitter} /></li>
-              <li><FontAwesomeIcon icon={faYoutube} /></li>
-            </ul>
-            
-          </div>
-      </div>
+  const isExSmallMobileDevice = useMediaQuery({
+    query: "(min-device-width: 355px)",
+  });
 
-      <div className='Right'>
-          <div className='Top-Right'>
-            <img src={example} alt="world" />
-          </div>
-          <div className='Bottom-Right'>
-          <div className='info'>
-              <h2>Lorem ipsum dolor</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                  incididunt ut labore et dolore magna aliqua. Magna fringilla urna porttitor rhoncus
-                  dolor. Etiam tempor orci eu lobortis.</p>
-             </div>
+  const isSmallMobileDevice = useMediaQuery({
+    query: "(min-device-width: 376px)",
+  });
 
 
-            <div className='help-icons-div'>
-              <div className='icon-div hands'>
-                <FontAwesomeIcon className='hands-icon' icon={faHandsHoldingCircle} />
-                <p>How You Can Help</p>
-              </div>
+  const isMobileDevice = useMediaQuery({
+    query: "(min-device-width: 480px)",
+  });
 
-              <div className='icon-div user'>
-                <FontAwesomeIcon className='user-icon' icon={ faChalkboardUser } />
-                <p>Learn More</p>
-              </div>
+  const isTabletDevice = useMediaQuery({
+    query: "(min-device-width: 890px)",
+  });
 
-              <div className='icon-div days'>
-                <FontAwesomeIcon className='days-icon' icon={faCalendarDays} />
-                <p>Events</p>
-              </div>
-            </div>
-            
-          </div>
+  const isLaptop = useMediaQuery({
+    query: "(min-device-width: 1024px)",
+  });
 
-      </div>
-    </div>
-  );
-}
+  const isDesktop = useMediaQuery({
+    query: "(min-device-width: 1130px)",
+  });
 
 
+  const isMedScreen = useMediaQuery({
+    query: "(min-device-width: 1250px )",
+  });
+
+  const isBigScreen = useMediaQuery({
+    query: "(min-device-width: 1450px )",
+  });
+    if(ExSmallMobile) {
+      return <ExSmallMobile />
+    }
+  // if (isBigScreen) {
+  //   return <BigScreen />
+  //   } else if (isMedScreen) {
+  //     return  <MedScreen />
+  //   } else if (isDesktop) {
+  //       return  <Desktop />
+  //     } else if (isLaptop) {
+  //         return <Laptop/>
+  //       } else if (isTabletDevice) {
+  //           return <TabletMobile />
+  //         } else if (isMobileDevice) {
+  //             return < Mobile />
+  //           } else if (isSmallMobileDevice) {
+  //             return < SmallMobile />
+  //           } else if (isExSmallMobileDevice) {
+  //             return < ExSmallMobile />
+  //           } else {
+  //               return < ExSmallMobile />
+  //         }
+        }
 export default App;
